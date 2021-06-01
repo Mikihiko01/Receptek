@@ -5,16 +5,17 @@ $(function () {
             receptTomb = result;
             console.log(result);
             tablazatletrehoz();
-             $("#OK").click(ment);
+            kategoriaKivalaszt();
 
         }});
+    $("#OK").click(ment);
     $("#bal").click(balraleptet);
     $("#jobb").click(jobbraleptet);
     $("article").on("click", "tr", kivalaszt);
 });
 function tablazatletrehoz() {
     $("article").append("<table>");
-    $("article table").append("<tr><th>Név</th><th>elkészités</th><th>leírás</th><th>kép</th><th>Hozzávalok</th></tr>");
+    $("article table").append("<tr><th>Név</th><th>elkészités</th><th>leírás</th><th>kép</th><th>Kategoriák</th><th>Hozzávalok</th></tr>");
     for (var i = 0; i < receptTomb.length; i++) {
         $("article table").append("<tr id=' " + i + " '>");
         for (var item in receptTomb[i]) {
@@ -22,31 +23,34 @@ function tablazatletrehoz() {
         }
 
     }
-    kategoriaKivalaszt();
-    
-//    $("tr").click(kivalaszt);
 
-     $("article").on("click", "tr", rendez);
+//    $("tr").click(kivalaszt);
 }
+
+//Kategoria Kiválasztás
 function kategoriaKivalaszt() {
     $("table").append("<div class='kategoria style='width:200px;'>");
-    $("table").append("<select>");
+    $("table div").append("<select>");
     $("select").append("<option value='0'>Katekoráik");
     $("select").append('<option value="1">Leves');
     $("select").append('<option value="2">Deszert');
     $("select").append('<option value="2">Fő étel');
-    
+
     for (var i = 0; i < receptTomb.length; i++) {
-    $("select option").eq(i + 1).click(rendez);
-        
+        $("select option").eq(i + 1).click(rendez);
+
     }
+    
 
 
 }
-
+function tablazat() {
+    $("table").append(tablazatletrehoz());
+}
+//Kategoria Rendezés
 var kategoriaRendezes = true;
 function rendez() {
-    
+
     if (kategoriaRendezes) {
         receptTomb.sort(function (a, b) {
             return Number(a.kategoria > b.kategoria) - 0.5;
@@ -93,13 +97,14 @@ function megjelinit(id) {
     }
 
 }
+//  új receptett
 function ment() {
     var ujRecept = {};
-    ujRecept.termeknev = $("#nev").val();
-    ujRecept.ar = $("#nev").val();
-    ujRecept.tipus = "Táblás";
+    ujRecept.nev = $("#nev").val();
+    ujRecept.ido = $("#elkeszites").val();
+    ujRecept.kategoria = ".receptkategoria";
     receptTomb.push(ujRecept);
-    tablazatletrehoz();
+    tablazat();
 
 }
 function balraleptet() {

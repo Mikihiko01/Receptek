@@ -1,6 +1,6 @@
 [
     {
-        "nev": "somlói galuska",
+        "nev": "Somlói galuska",
         "ido": "60",
         "leiras": "így készül a Somlói Galuska",
         "kep": "kepek/galuska.png",
@@ -18,7 +18,7 @@
         "ido": "30",
         "leiras": "így készül a Pörkölt",
         "kep": "kepek/porkolt.png",
-        "kategoria": "fő étel",
+        "kategoria": "deszert",
         "hozzavalok": [{
                 "hus": "1 kg"
             }, {
@@ -31,7 +31,7 @@
             }
         ]
     }, {
-        "nev": "leves",
+        "nev": "Leves",
         "ido": "10",
         "leiras": "így készül a Leves",
         "kep": "kepek/valami.png",      

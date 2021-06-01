@@ -29,16 +29,17 @@ and open the template in the editor.
 
                             <label for="usr">Recept neve:</label>
                             <input type="text" id="nev" name="nev" placeholder="gyümölcleves">
+                            <label for="usr">Elkészitési idő:</label>
+                            <input type="text" id="elkeszites" name="elkeszites" placeholder="30">
                         </div>
 
                         <div>
                             <label for="ff">Leves</label>
-
-                            <input type="radio" id="receptkategoria1" name="tipus" value="rk">
-                            <label for="ff">deszert</label>
-                            <input type="radio" id="receptkategoria2" name="tipus" value="rk">
-                            <label for="ff">fő étel</label>
-                            <input type="radio" id="receptkategoria3" name="tipus" value="rk">
+                            <input type="radio" class="receptkategoria" name="tipus" value="1">
+                            <label for="ff">Deszert</label>
+                            <input type="radio" class="receptkategoria" name="tipus" value="2">
+                            <label for="ff">Fő étel</label>
+                            <input type="radio" class="receptkategoria" name="tipus" value="3">
                         </div>
 
                         <input type="button" id="OK" name="Ok" value="OK">
