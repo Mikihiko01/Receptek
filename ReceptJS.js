@@ -5,7 +5,8 @@ $(function () {
             receptTomb = result;
             console.log(result);
             tablazatletrehoz();
-            
+            kategoriaKivalaszt();
+
         }});
     $("#bal").click(balraleptet);
     $("#jobb").click(jobbraleptet);
@@ -19,41 +20,42 @@ function tablazatletrehoz() {
         for (var item in receptTomb[i]) {
             $("article table tr").eq(i + 1).append("<td>" + receptTomb[i][item] + "</td>");
         }
-         
+
     }
-     $("article th").click(rendez);
+    
 //    $("tr").click(kivalaszt);
-kategoriakivalaszt();
+
+     $("article").on("click", "tr", rendez);
 }
-function kategoriakivalaszt() {
+function kategoriaKivalaszt() {
     $("table").append("<div class='kategoria style='width:200px;'>");
     $("table").append("<select>");
-    $("select").append("<option value='0'>Katekoráik"); 
-    $("select").append('<option value="1">Leves'); 
-    $("select").append('<option value="2">Deszert'); 
-    $("select").append('<option value="2">Főétel'); 
-    rendez();
-    
+    $("select").append("<option value='0'>Katekoráik");
+    $("select").append('<option value="1">Leves');
+    $("select").append('<option value="2">Deszert');
+    $("select").append('<option value="2">Főétel');
+    $("article th").click(rendez);
+
 
 }
-var irany = true;
+var kategoriaRendezes = true;
 function rendez() {
-    console.log(irany);
-    if (irany) {
+    
+    if (kategoriaRendezes) {
         receptTomb.sort(function (a, b) {
-            return Number(a.kategoria.length > b.kategoria.length) - 0.5;
+            return Number(a.kategoria > b.kategoria) - 0.5;
         });
-        irany = false;
+        kategoriaRendezes = false;
     } else {
         receptTomb.sort(function (a, b) {
             return Number(a.kategoria < b.kategoria) - 0.5;
         });
-        irany = true;
+        kategoriaRendezes = true;
     }
-    
+
 
 }
-    
+
 
 function kivalaszt() {
     console.log("itt vagyok");
@@ -61,7 +63,7 @@ function kivalaszt() {
     lepteoIndex = id;
     console.log(id);
     console.log(receptTomb[id]);
-    
+
     megjelinit(id);
 }
 function megjelinit(id) {
