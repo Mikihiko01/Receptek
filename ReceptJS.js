@@ -5,7 +5,7 @@ $(function () {
             receptTomb = result;
             console.log(result);
             tablazatletrehoz();
-            kategoriaKivalaszt();
+             $("#OK").click(ment);
 
         }});
     $("#bal").click(balraleptet);
@@ -22,6 +22,7 @@ function tablazatletrehoz() {
         }
 
     }
+    kategoriaKivalaszt();
     
 //    $("tr").click(kivalaszt);
 
@@ -33,11 +34,16 @@ function kategoriaKivalaszt() {
     $("select").append("<option value='0'>Katekoráik");
     $("select").append('<option value="1">Leves');
     $("select").append('<option value="2">Deszert');
-    $("select").append('<option value="2">Főétel');
-    $("article th").click(rendez);
+    $("select").append('<option value="2">Fő étel');
+    
+    for (var i = 0; i < receptTomb.length; i++) {
+    $("select option").eq(i + 1).click(rendez);
+        
+    }
 
 
 }
+
 var kategoriaRendezes = true;
 function rendez() {
     
@@ -85,6 +91,15 @@ function megjelinit(id) {
             $("#recept ul").append("<li>" + item + " " + hozzavalok[i][item] + "</li>");
         }
     }
+
+}
+function ment() {
+    var ujRecept = {};
+    ujRecept.termeknev = $("#nev").val();
+    ujRecept.ar = $("#nev").val();
+    ujRecept.tipus = "Táblás";
+    receptTomb.push(ujRecept);
+    tablazatletrehoz();
 
 }
 function balraleptet() {

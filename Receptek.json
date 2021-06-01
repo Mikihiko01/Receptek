@@ -4,14 +4,13 @@
         "ido": "60",
         "leiras": "így készül a Somlói Galuska",
         "kep": "kepek/galuska.png",
+        "kategoria": "fő étel",
         "hozzavalok": [{
                 "csoki": "1 tábla"
             }, {
                 "tojás": "6 db"
             }, {
                 "liszt": "1,5 kg"
-            }, {
-                "kategoria": "leves"
             }]
     },
     {
@@ -19,6 +18,7 @@
         "ido": "30",
         "leiras": "így készül a Pörkölt",
         "kep": "kepek/porkolt.png",
+        "kategoria": "fő étel",
         "hozzavalok": [{
                 "hus": "1 kg"
             }, {
@@ -28,21 +28,18 @@
             },
             {
                 "paprika": "3 db"
-            }, {
-                "kategoria": "fő étel"
             }
         ]
     }, {
         "nev": "leves",
         "ido": "10",
         "leiras": "így készül a Leves",
-        "kep": "kepek/valami.png",
+        "kep": "kepek/valami.png",      
+        "kategoria": "leves",           
         "hozzavalok": [{
                 "viz": "1 l"
             }, {
                 "liszt": "1 kanál"
-            }, {
-                "kategoria": "deszert"
             }]
     }
 ]
