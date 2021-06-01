@@ -26,3 +26,6 @@ section{
     display: grid;
     grid-template-columns: 50px auto 50px;
 }
+#bal, #jobb{
+    cursor: grab;
+}

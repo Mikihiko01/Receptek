@@ -10,6 +10,8 @@
                 "tojás": "6 db"
             }, {
                 "liszt": "1,5 kg"
+            }, {
+                "kategoria": "leves"
             }]
     },
     {
@@ -26,6 +28,8 @@
             },
             {
                 "paprika": "3 db"
+            }, {
+                "kategoria": "fő étel"
             }
         ]
     }, {
@@ -37,6 +41,8 @@
                 "viz": "1 l"
             }, {
                 "liszt": "1 kanál"
+            }, {
+                "kategoria": "deszert"
             }]
     }
 ]

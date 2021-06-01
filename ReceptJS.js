@@ -5,6 +5,7 @@ $(function () {
             receptTomb = result;
             console.log(result);
             tablazatletrehoz();
+            
         }});
     $("#bal").click(balraleptet);
     $("#jobb").click(jobbraleptet);
@@ -18,16 +19,50 @@ function tablazatletrehoz() {
         for (var item in receptTomb[i]) {
             $("article table tr").eq(i + 1).append("<td>" + receptTomb[i][item] + "</td>");
         }
+         
     }
+     $("article th").click(rendez);
 //    $("tr").click(kivalaszt);
+kategoriakivalaszt();
 }
+function kategoriakivalaszt() {
+    $("table").append("<div class='kategoria style='width:200px;'>");
+    $("table").append("<select>");
+    $("select").append("<option value='0'>Katekoráik"); 
+    $("select").append('<option value="1">Leves'); 
+    $("select").append('<option value="2">Deszert'); 
+    $("select").append('<option value="2">Főétel'); 
+    rendez();
+    
+
+}
+var irany = true;
+function rendez() {
+    console.log(irany);
+    if (irany) {
+        receptTomb.sort(function (a, b) {
+            return Number(a.kategoria.length > b.kategoria.length) - 0.5;
+        });
+        irany = false;
+    } else {
+        receptTomb.sort(function (a, b) {
+            return Number(a.kategoria < b.kategoria) - 0.5;
+        });
+        irany = true;
+    }
+    
+
+}
+    
+
 function kivalaszt() {
     console.log("itt vagyok");
     var id = $(this).attr("id");
     lepteoIndex = id;
-    megjelinit(id);
     console.log(id);
     console.log(receptTomb[id]);
+    
+    megjelinit(id);
 }
 function megjelinit(id) {
     $("#recept").empty();
@@ -67,4 +102,3 @@ function jobbraleptet() {
     }
     megjelinit(lepteoIndex);
 }
-//var receptek = '[{"nev": "somlói galuska","ido": "60","leiras": "így készül a Somlói Galuska","kep": "kepek/galuska.png","hozzavalok": [{"csoki": "1 tábla"}, {"tojás": "6 db"}, {"liszt": "1,5 kg"}]},{"nev": "Pörkölt","ido": "30","leiras": "így készül a Pörkölt","kep": "kepek/porkolt.png","hozzavalok": [{"hus": "1 kg"}, {"hagyma": "2 fej"}, {"paradicsom": "1 db"},{"paprika": "3 db"}]}, {"nev": "leves","ido": "10","leiras": "így készül a Leves","kep": "kepek/valami.png","hozzavalok": [{"viz": "1 l"}, {"liszt": "1 kanál"}]}]';
