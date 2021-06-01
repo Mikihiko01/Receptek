@@ -28,4 +28,6 @@ section{
 }
 #bal, #jobb{
     cursor: grab;
+    border: 1px solid;
+    height: 20px;
 }
