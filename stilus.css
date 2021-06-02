@@ -30,4 +30,5 @@ section{
     cursor: grab;
     border: 1px solid;
     height: 20px;
+    padding: 5px;
 }

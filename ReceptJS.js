@@ -14,6 +14,7 @@ $(function () {
     $("article").on("click", "tr", kivalaszt);
 });
 function tablazatletrehoz() {
+    $("article").empty();
     $("article").append("<table>");
     $("article table").append("<tr><th>Név</th><th>elkészités</th><th>leírás</th><th>kép</th><th>Kategoriák</th><th>Hozzávalok</th></tr>");
     for (var i = 0; i < receptTomb.length; i++) {
@@ -29,39 +30,44 @@ function tablazatletrehoz() {
 
 //Kategoria Kiválasztás
 function kategoriaKivalaszt() {
-    $("table").append("<div class='kategoria style='width:200px;'>");
-    $("table div").append("<select>");
-    $("select").append("<option value='0'>Katekoráik");
-    $("select").append('<option value="1">Leves');
-    $("select").append('<option value="2">Deszert');
-    $("select").append('<option value="2">Fő étel');
+    $("nav").append("<div class='kategoria style='width:200px;'>");
+    $("nav div").append("<select>");
+    $("select").append("<option >Válasz rendezési pontott");
+    $("select").append('<option >nev');
+    $("select").append('<option >leiras');
+    $("select").append('<option >kategoria');
 
-    for (var i = 0; i < receptTomb.length; i++) {
-        $("select option").eq(i + 1).click(rendez);
+    
+        $("select").change(rendez);
+        
 
-    }
+    
     
 
 
 }
-function tablazat() {
+function tablazatbarak() {
     $("table").append(tablazatletrehoz());
 }
 //Kategoria Rendezés
 var kategoriaRendezes = true;
 function rendez() {
+    console.log("rendez");
+    var id = $("select").val();
 
     if (kategoriaRendezes) {
+        
         receptTomb.sort(function (a, b) {
-            return Number(a.kategoria > b.kategoria) - 0.5;
+            return Number(a[id] > b[id]) - 0.5;
         });
         kategoriaRendezes = false;
     } else {
         receptTomb.sort(function (a, b) {
-            return Number(a.kategoria < b.kategoria) - 0.5;
+            return Number(a[id] < b[id]) - 0.5;
         });
         kategoriaRendezes = true;
     }
+    tablazatletrehoz();
 
 
 }
@@ -69,7 +75,7 @@ function rendez() {
 
 function kivalaszt() {
     console.log("itt vagyok");
-    var id = $(this).attr("id");
+    var id = Number($(this).attr("id"));
     lepteoIndex = id;
     console.log(id);
     console.log(receptTomb[id]);
@@ -104,7 +110,7 @@ function ment() {
     ujRecept.ido = $("#elkeszites").val();
     ujRecept.kategoria = ".receptkategoria";
     receptTomb.push(ujRecept);
-    tablazat();
+    tablazatbarak();
 
 }
 function balraleptet() {
